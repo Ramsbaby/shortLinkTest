@@ -1,0 +1,47 @@
+
+
+
+.p_btnAll{width: 82px; height:23px; background: url(../img/Btn/btnAll.png) no-repeat 0px 0px; }
+.p_btnAll:hover,.p_btnAll:active{width: 82px; height:23px; background: url(../img/Btn/btnAll.png) no-repeat 0px -23px; }
+
+.p_btn{width: 72px; height:23px; background: url(../img/Btn/btnSearch.png) no-repeat 0px 0px; }
+.p_btn:hover,.p_btn:active{width: 72px; height:23px; background: url(../img/Btn/btnSearch.png) no-repeat 0px -23px; }
+
+.p_btnClose{width: 72px; height:23px; background: url(../img/Btn/btnClosed.png) no-repeat 0px 0px; }
+.p_btnClose:hover,.p_btnClose:active{width: 72px; height:23px; background: url(../img/Btn/btnClosed.png) no-repeat 0px -23px; }
+
+.p_btnPlus{width: 72px; height:23px; background: url(../img/Btn/btnPlus.png) no-repeat 0px 0px; }
+.p_btnPlus:hover,.p_btnPlus:active{width: 72px; height:23px; background: url(../img/Btn/btnPlus.png) no-repeat 0px -23px; }
+
+.p_btnAdd{width: 82px; height:23px; background: url(../img/Btn/btnAdd.png) no-repeat 0px 0px; }
+.p_btnAdd:hover,.p_btnAdd:active{width: 82px; height:23px; background: url(../img/Btn/btnAdd.png) no-repeat 0px -23px; }
+
+.p_btnSave{width: 72px; height:23px; background: url(../img/Btn/btnSave.png) no-repeat 0px 0px; }
+.p_btnSave:hover,.p_btnSave:active{width: 72px; height:23px; background: url(../img/Btn/btnSave.png) no-repeat 0px -23px; }
+
+
+.p_btnCancel{width: 72px; height:23px; background: url(../img/Btn/btnCancel.png) no-repeat 0px 0px; }
+.p_btnCancel:hover,.btnEvtClose:active{width: 72px; height:23px; background: url(../img/Btn/btnCancel.png) no-repeat 0px -23px; }
+
+
+.p_btnBackIcon{width: 23px; height:23px; background: url(../img/Btn/btnPrevious.png) no-repeat 0px 0px; }
+.p_btnBackIcon:hover,.p_btnBackIcon:active{width: 23px; height:23px; background: url(../img/Btn/btnPrevious.png) no-repeat 0px -23px; }
+
+.p_btnNextIcon{width: 23px; height:23px; background: url(../img/Btn/btnNext.png) no-repeat 0px 0px; }
+.p_btnNextIcon:hover,.p_btnNextIcon:active{width: 23px; height:23px; background: url(../img/Btn/btnNext.png) no-repeat 0px -23px; }
+
+button {
+	cursor: pointer;	
+	border:none;
+}
+
+
+
+
+/*======================================
+
+
+========================================*/
+
+.ctrlButton{position: absolute; float: right; right: 10px; top:10px;}
+.ctrlButton>button{border:none;}

@@ -1,0 +1,470 @@
+/**=======================
+	라운드값 - 그리드/탭/트리 코너 
+======================== */
+.jqx-rc-tl-ui-book {
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.jqx-rc-tr-ui-book {
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.jqx-rc-bl-ui-book {
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.jqx-rc-br-ui-book {
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+/*top rounded Corners*/
+.jqx-rc-t-ui-book {
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+}
+/*bottom rounded Corners*/
+.jqx-rc-b-ui-book {
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+/*right rounded Corners*/
+.jqx-rc-r-ui-book {
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+/*left rounded Corners*/
+.jqx-rc-l-ui-book {
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+/*all rounded Corners*/
+.jqx-rc-all-ui-book {
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+
+/**=======================
+	테마 레이아웃
+======================== */
+.jqx-grid-cell-filter-row > input {height: 22px;}
+
+/* 드롭박스 */
+.jqx-fill-state-normal{
+	background: #ffffff;
+	border-color:#cacaca;
+}
+
+/* 기간 인풋박스 */
+.jqx-input-ui-book {
+	border-color: #939393;
+	background: #ffffff;
+}
+
+/* 그리드 탭  */
+.jqx-tabs-title-container > .jqx-item{
+	border:1px solid #b0b0b0;	
+}
+
+/* 그리드/탭 후버 */
+.jqx-fill-state-hover-ui-book, .jqx-widget-ui-book .jqx-grid-cell-hover-ui-book
+	{
+	cursor: pointer;
+	color: #000000;
+	text-shadow: none;
+	border-color: #5daad6;
+	background-color: #c4dce9;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	font-family: "맑은 고딕", dotum, "Trebuchet MS", Verdana, Helvetica,}
+
+/* 그리드/탭 클릭시 */
+.jqx-fill-state-pressed-ui-book, .jqx-widget-ui-book .jqx-grid-cell-selected-ui-book
+	{
+	cursor: pointer;
+	color: #ffffff;
+	font-weight: bold;
+	text-shadow: none;
+	border-color: #5daad6;
+	background-color: #5daad6;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	font-family: "맑은 고딕", dotum, "Trebuchet MS", Verdana, Helvetica,}
+
+
+/* 그리드 컬럼 헤더 */
+.jqx-grid-column-header{
+	background: #f3f3f3;
+	color:#000000;
+	/* opacity: 0.87; */
+	opacity: 1;
+	font-weight: bold;
+}
+
+.jqx-tabs-title-selected-top-ui-book,
+	.jqx-tabs-selection-tracker-top-ui-book {
+	color: #133B52;
+	font-weight:bold;
+	text-shadow: none;
+	border-color: #969696;
+	border-bottom: 1px solid #ffffff;
+	background-image: none;
+	background-color: #ffffff;
+}
+
+/*==아이콘==*/
+
+/* 페이징 아이콘 */
+/*맨앞으로 */
+.jqx-icon-arrow-first, .jqx-icon-arrow-first-hover, .jqx-icon-arrow-first-selected {
+    background-image: url('../lib/jqwidgets/styles/images/metro-icon-first.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.jqx-icon-arrow-first, .jqx-icon-arrow-first-hover, .jqx-icon-arrow-first-selected {
+	background-image: url('../lib/jqwidgets/styles/images/ss-icon-first.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/*왼쪽 */
+.jqx-icon-arrow-left, .jqx-icon-arrow-left-hover, .jqx-icon-arrow-left-selected {
+    background-image: url('../lib/jqwidgets/styles/images/metro-icon-left.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.jqx-icon-arrow-left, .jqx-icon-arrow-left-hover, .jqx-icon-arrow-left-selected {
+	background-image: url('../lib/jqwidgets/styles/images/ss-icon-left.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+/*오른쪽 */    
+.jqx-icon-arrow-right, .jqx-icon-arrow-right-hover, .jqx-icon-arrow-right-selected {
+    background-image: url('../lib/jqwidgets/styles/images/metro-icon-right.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.jqx-icon-arrow-right, .jqx-icon-arrow-right-hover, .jqx-icon-arrow-right-selected {
+	background-image: url('../lib/jqwidgets/styles/images/ss-icon-right.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+/*맨뒤로 */
+.jqx-icon-arrow-last, .jqx-icon-arrow-last-hover, .jqx-icon-arrow-last-selected {
+    background-image: url('../lib/jqwidgets/styles/images/metro-icon-last.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.jqx-icon-arrow-last, .jqx-icon-arrow-last-hover, .jqx-icon-arrow-last-selected {
+	background-image: url('../lib/jqwidgets/styles/images/ss-icon-last.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+/* 아래쪽 */
+.jqx-icon-arrow-down, .jqx-icon-arrow-down-hover, .jqx-icon-arrow-down-selected {
+    background-image: url('../lib/jqwidgets/styles/images/metro-icon-down.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* 위쪽 */
+.jqx-icon-arrow-up, .jqx-icon-arrow-up-hover, .jqx-icon-arrow-up-selected {
+    background-image: url('../lib/jqwidgets/styles/images/metro-icon-up.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* 탭 왼쪽아이콘  */
+.jqx-tabs-arrow-left{
+	background-image: url('../lib/jqwidgets/styles/images/icon-left.png');
+    background-repeat: no-repeat;
+    background-position: center;	
+}
+/* 탭 오른쪽아이콘  */
+.jqx-tabs-arrow-right{
+	background-image: url('../lib/jqwidgets/styles/images/icon-right.png');
+    background-repeat: no-repeat;
+    background-position: center;	
+}
+
+
+/* 필터 버튼  */
+.filtericon, .jqx-widget-header, .jqx-widget-header-ui-book{
+    
+    background-image: url('../lib/jqwidgets/styles/images/filter_white.png') no-repeat center;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+}
+/**=======================
+	스크롤바
+======================== */
+
+/* 스크롤바- 기본상태   */
+.jqx-scrollbar-thumb-state-normal-horizontal-ui-book,
+	.jqx-scrollbar-thumb-state-normal-ui-book {
+	background: #cdcdcd;
+	border-color: #939393;
+}
+/* 스크롤바- 후버시  */
+.jqx-scrollbar-thumb-state-hover-horizontal-ui-book,
+	.jqx-scrollbar-thumb-state-hover-ui-book {
+	background: #a6a6a6;
+	border-color: #a6a6a6;
+}
+/* 스크롤바- 클릭시  */
+.jqx-scrollbar-thumb-state-pressed-horizontal-ui-book,
+	.jqx-scrollbar-thumb-state-pressed-ui-book {
+	background: #606060;
+	border-color: #606060;
+}
+
+/**=======================
+	분할테마
+======================== */
+/* 분할바 */
+.jqx-splitter-splitbar-hover-ui-book {
+	background: #133B52;
+}
+
+.jqx-splitter-splitbar-vertical-ui-book,
+	.jqx-splitter-splitbar-horizontal-ui-book,
+	.jqx-slider-track-horizontal-ui-book,
+	.jqx-slider-track-vertical-ui-book {
+	background: #ffffff;
+}
+
+.jqx-splitter-collapse-button-horizontal-ui-book,
+	.jqx-splitter-collapse-button-vertical-ui-book,
+	.jqx-slider-rangebar-ui-book {
+	background: #2F9BD7;
+}
+
+.jqx-scrollbar-state-normal-ui-book {
+	background-color: #f0f0f0;
+	border-color: #f0f0f0;
+}
+
+.jqx-grid-bottomright-ui-book, .jqx-panel-bottomright-ui-book,
+	.jqx-listbox-bottomright-ui-book {
+	background-color: #f0f0f0;
+}
+/* 스크롤바 */
+.jqx-scrollbar-thumb-state-normal-ui-book {
+	background-color: #cdcdcd;
+	background-color: #cdcdcd;
+	background-image: -moz-linear-gradient(left, #cdcdcd, #cdcdcd);
+	background-image: -ms-linear-gradient(left, #cdcdcd, #cdcdcd);
+	background-image: -o-linear-gradient(left, #cdcdcd, #cdcdcd);
+	background-image: -webkit-gradient(linear, left top, right top, from(#cdcdcd),
+		to(#cdcdcd));
+	background-image: -webkit-linear-gradient(left, #cdcdcd, #cdcdcd);
+	background-image: linear-gradient(left, #cdcdcd, #cdcdcd);
+	background-image: linear-gradient(left right, #cdcdcd, #cdcdcd);
+}
+
+.jqx-scrollbar-thumb-state-normal-horizontal-ui-book {
+	background-color: #cdcdcd;
+	background-color: #cdcdcd;
+	background-image: -moz-linear-gradient(top, #cdcdcd, #cdcdcd);
+	background-image: -ms-linear-gradient(top, #cdcdcd, #cdcdcd);
+	background-image: -o-linear-gradient(top, #cdcdcd, #cdcdcd);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#cdcdcd),
+		to(#cdcdcd));
+	background-image: -webkit-linear-gradient(top, #cdcdcd, #cdcdcd);
+	background-image: linear-gradient(top, #cdcdcd, #cdcdcd);
+	background-image: linear-gradient(to bottom, #cdcdcd, #cdcdcd);
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.jqx-scrollbar-thumb-state-hover-ui-book {
+	background-color: #a6a6a6;
+	border-color: #a6a6a6;
+	background-image: -moz-linear-gradient(left, #a6a6a6, #a6a6a6);
+	background-image: -ms-linear-gradient(left, #a6a6a6, #a6a6a6);
+	background-image: -o-linear-gradient(left, #a6a6a6, #a6a6a6);
+	background-image: -webkit-gradient(linear, left top, right top, from(#a6a6a6),
+		to(#a6a6a6));
+	background-image: -webkit-linear-gradient(left, #a6a6a6, #a6a6a6);
+	background-image: linear-gradient(left, #a6a6a6, #a6a6a6);
+	background-image: linear-gradient(left right, #a6a6a6, #a6a6a6);
+}
+
+.jqx-scrollbar-thumb-state-hover-horizontal-ui-book {
+	background-color: #a6a6a6;
+	border-color: #a6a6a6;
+	background-image: -moz-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: -ms-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: -o-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#a6a6a6),
+		to(#a6a6a6));
+	background-image: -webkit-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: linear-gradient(to bottom, #a6a6a6, #a6a6a6);
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.jqx-scrollbar-thumb-state-pressed-ui-book {
+	background-color: #606060;
+	border-color: #606060;
+	background-image: -moz-linear-gradient(left, #606060, #606060);
+	background-image: -ms-linear-gradient(left, #606060, #606060);
+	background-image: -o-linear-gradient(left, #606060, #606060);
+	background-image: -webkit-gradient(linear, left top, right top, from(#606060),
+		to(#606060));
+	background-image: -webkit-linear-gradient(left, #606060, #606060);
+	background-image: linear-gradient(left, #606060, #606060);
+	background-image: linear-gradient(left right, #606060, #606060);
+}
+
+.jqx-scrollbar-thumb-state-pressed-horizontal-ui-book {
+	background-color: #606060;
+	border-color: #606060;
+	background-image: -moz-linear-gradient(top, #606060, #606060);
+	background-image: -ms-linear-gradient(top, #606060, #606060);
+	background-image: -o-linear-gradient(top, #606060, #606060);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#606060),
+		to(#606060));
+	background-image: -webkit-linear-gradient(top, #606060, #606060);
+	background-image: linear-gradient(top, #606060, #606060);
+	background-image: linear-gradient(to bottom, #606060, #606060);
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.jqx-scrollbar-button-state-normal-ui-book {
+	background-color: #f0f0f0;
+	background-image: -moz-linear-gradient(top, #f0f0f0, #f0f0f0);
+	background-image: -ms-linear-gradient(top, #f0f0f0, #f0f0f0);
+	background-image: -o-linear-gradient(top, #f0f0f0, #f0f0f0);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#f0f0f0),
+		to(#f0f0f0));
+	background-image: -webkit-linear-gradient(top, #f0f0f0, #f0f0f0);
+	background-image: linear-gradient(top, #f0f0f0, #f0f0f0);
+	background-image: linear-gradient(to bottom, #f0f0f0, #f0f0f0);
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.jqx-scrollbar-button-state-hover-ui-book {
+	background-color: #a6a6a6;
+	border-color: #a6a6a6;
+	background-image: -moz-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: -ms-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: -o-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#a6a6a6),
+		to(#a6a6a6));
+	background-image: -webkit-linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: linear-gradient(top, #a6a6a6, #a6a6a6);
+	background-image: linear-gradient(to bottom, #a6a6a6, #a6a6a6);
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.jqx-scrollbar-button-state-pressed-ui-book {
+	background-color: #606060;
+	border-color: #606060;
+	background-image: -moz-linear-gradient(top, #606060, #606060);
+	background-image: -ms-linear-gradient(top, #606060, #606060);
+	background-image: -o-linear-gradient(top, #606060, #606060);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#606060),
+		to(#606060));
+	background-image: -webkit-linear-gradient(top, #606060, #606060);
+	background-image: linear-gradient(top, #606060, #606060);
+	background-image: linear-gradient(to bottom, #606060, #606060);
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.jqx-grid-cell-filter-row, .jqx-grid-cell-filter-row-ui-book>input[type="text"]{
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+/* 달력 */
+
+.LevelGrade{
+	float: left;
+}
+.LevelGrade>ul>li{
+	float: left;
+	margin-left:5px;
+}
+
+.colorLevel{
+	width:10px;
+	height: 10px;	
+}
+.YellowBox{
+	background: #fed171;
+	border: 1px solid #fcc03a;
+	margin-top: 3px;
+}
+.GreenBox{
+	background: #97dd90;
+	border: 1px solid #6dcf66;
+	margin-top: 3px;
+}
+.PurpleBox{
+	background: #d47fff;
+	border: 1px solid #cc66ff;
+	margin-top: 3px;
+}
+.SkyBox{
+	background: #2ae3f4;
+	border: 1px solid #1dd2e2;
+	margin-top: 3px;
+}
+.colorText{
+	margin-right: 10px;	
+}
+
+.jqx-scheduler-month-cell{
+	height: 20px !important;
+	color: #000000;
+	font-weight: bold;
+}
+
+.jqx-scheduler-month-weekend-cell{
+	background: none;		
+}
+
+#tablep_scheduler>.jqx-grid-table>tr>td{background: red;}
+
+.jqx-button{cursor: pointer;}
+
+.dashBtn {top:2px!important;}

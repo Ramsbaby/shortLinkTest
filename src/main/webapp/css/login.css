@@ -1,0 +1,106 @@
+/**=======================
+	
+======================== */
+#n_login {
+	width: 100%;
+	height: 100%;
+}
+
+.familySite{    position: absolute;    right: 25px;    top: 37px; }
+.familySite>div{width: 150px; height: 26px; float: left; margin-right: 5px}
+.familySite>input{padding: 2px 7px 4px;
+    background: #28ada6;
+    border: 1px solid #208a85;
+    color: #ffffff;
+    }
+
+.login_block {
+	width: 1280px;
+	padding-top: 320px;
+	margin: 0 auto;
+}
+
+.login_box {
+	margin: 0 auto;
+	position: relative;
+	width: 537px;
+	height: 277px;
+	background: url('../img/login/loginBox.png') no-repeat;
+	font-family: Malgun Gothic, "留묒�怨좊뵓;"
+}
+
+.login_logo {
+	position: absolute;
+	top: -60px;
+	left: 10px;
+}
+
+.inputBox2 {
+	position: absolute;
+	top: 100px;
+	left: 195px;
+}
+
+.inputBox2  .login_form>div {
+	padding-bottom: 8px;
+}
+
+.inputBox2  .login_form>div>input {
+	width: 158px;
+	height: 31px;
+	padding-left: 34px;
+	border: 1px solid #ccc;
+	color: #444;
+	font-size: 1em;
+}
+
+.login_btn {
+	position: absolute;
+	top: 0;
+	left: 213px;;
+}
+
+.login_id {
+	position: absolute;
+	top: 7px;
+	left: 8px;;
+}
+
+.login_ps {
+	position: absolute;
+	top: 51px;
+	left: 8px;;
+}
+
+.login_sub {
+	padding-left: 213px;
+}
+
+.login_sub>input {
+	width: 80px;
+	height: 23px;
+	text-align: center;
+}
+
+.login_sub>div>a {
+	text-decoration: none;
+	color: #646464;
+	line-height: 22px;
+	font-size: 10px;
+	text-align: center;
+}
+
+.login_copy {
+	font-size: 12px;
+	color: #888;
+	position: absolute;
+	width: 300px;
+	padding-top: 20px;
+	left: -70px;
+}
+
+.k_pos {
+	position: absolute;
+	top: -80px;
+	left: 100px
+}

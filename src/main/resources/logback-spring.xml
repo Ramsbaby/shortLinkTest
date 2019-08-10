@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/> <!-- (s) 기본 로그 레벨 값 설정 -->
+    <property name="loggerLevelBluesky" value="DEBUG"/>
+    <property name="loggerLevel" value="INFO"/>
+    <if condition='p("spring.profiles.active").equals("live")'>
+        <then>
+            <property name="loggerLevelBluesky" value="INFO"/>
+            <property name="loggerLevel" value="INFO"/>
+        </then>
+    </if> <!-- (e) 기본 로그 레벨 값 설정 -->
+    <logger name="net.luversof" level="${loggerLevelBluesky}"/>
+    <logger name="java.sql" level="${loggerLevel}"/>
+    <logger name="org.springframework" level="${loggerLevel}"/>
+    <if condition='p("spring.profiles.active").equals("live")'>
+        <then>
+            <root level="WARN">
+                <appender-ref ref="FILE"/>
+            </root>
+        </then>
+        <else>
+            <root level="INFO">
+                <appender-ref ref="CONSOLE"/>
+                <appender-ref ref="FILE"/>
+            </root>
+        </else>
+    </if>
+</configuration>
+
