@@ -26,23 +26,19 @@
         <div class="content">
             <div class="contentsP10" style="top: 0">
                 <div id="mainSplitter">
-                    <div>
+                    <div >
                         <div id="jqxPanel" style="margin: auto">
                             <div style="margin-left: 10px; margin-right: 10px">
                                 <h3>   URL : </h3>
                                 <input type="text" id="inputUrl" />
+                                <button id="notiBtn" type="button" style="margin-top: 5px" >링크 축약하기</button>
                             </div>
                         </div>
-
-
 
                     </div>
                     <div>
-                        <div id="jqxNotification">
-                            <div id="notificationContent">
-                            </div>
+                        <div id="urlGrid">
                         </div>
-                        <button id="notiBtn" type="button" >링크 축약하기</button>
                         <div id="container" style="width: 100%; height: 400px; margin-top: 15px; background-color: #F2F2F2;
                                border: 1px dashed #AAAAAA; overflow: auto;">
                         </div>

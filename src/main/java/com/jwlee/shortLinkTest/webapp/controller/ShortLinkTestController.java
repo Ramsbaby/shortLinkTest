@@ -1,10 +1,25 @@
 package com.jwlee.shortLinkTest.webapp.controller;
 
+import com.jwlee.shortLinkTest.common.util.Base62Util;
+import com.jwlee.shortLinkTest.webapp.common.ErrorInfo;
+import com.jwlee.shortLinkTest.webapp.common.ReturnData;
+import com.jwlee.shortLinkTest.webapp.db.search.model.SearchHistory;
+import com.jwlee.shortLinkTest.webapp.db.search.repository.SearchHistoryRepository;
+import com.jwlee.shortLinkTest.webapp.db.search.service.SearchHistoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Map;
+import java.util.Random;
 
 /**
 * SearchHistoryController
@@ -16,60 +31,66 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ShortLinkTestController {
     private static final Logger logger = LoggerFactory.getLogger(ShortLinkTestController.class);
 
-    static final char[] BASE62 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
+
+    @Autowired
+    SearchHistoryRepository searchHistoryRepository;
+
+    @Resource(name = "searchHistoryService")
+    private SearchHistoryService searchHistoryService;
 
     /**
-     * Base62 Encoding
-     *
-     * @return the base 62 string of an integer
-     */
-    @RequestMapping(value = "/getSearchHistoryList")
-    @ResponseBody
-    public static String encode(int value) {
-        final StringBuilder sb = new StringBuilder();
-        do {
-            int i = value % 62;
-            sb.append(BASE62[i]);
-            value /= 62;
-        } while (value > 0);
-        return sb.toString();
-    }
+     * 계정 로그인
+     **/
+    @RequestMapping(value="getUrlToShortLink.do")
+    public @ResponseBody
+    ReturnData getUrlToShortLink(@RequestParam Map<String, Object> reqMap, HttpServletRequest request) throws Exception{
+        ReturnData returnData = new ReturnData();
+        try {
 
-    public static String encodeToLong(long value) {
-        final StringBuilder sb = new StringBuilder();
-        do {
-            int i = (int)(value % 62);
-            sb.append(BASE62[i]);
-            value /= 62;
-        } while (value > 0);
-        return sb.toString();
-    }
+            String url = reqMap.get("originalUrl").toString();
+            String protocolHostname = reqMap.get("protocolHostname").toString();
 
-    /**
-     * Returns the base 62 value of a string.
-     *
-     * @return the base 62 value of a string.
-     */
-    public static int decode(String value) {
-        int result=0;
-        int power=1;
-        for (int i = 0; i < value.length(); i++) {
-            int digit = new String(BASE62).indexOf(value.charAt(i));
-            result += digit * power;
-            power *= 62;
+            Random rnd = new Random();
+            long random_key = Math.abs(rnd.nextLong() % 10000000000L);
+            SearchHistory findCheckOriginalUrl = searchHistoryRepository.findByOriginalUrl(url);
+            SearchHistory findCheckShortUrl = searchHistoryRepository.findByShortUrl(url);
+
+            if(findCheckOriginalUrl == null)
+            {//original_url DB에 있는지 검사
+                if(findCheckShortUrl == null)
+                {//short_url로 입력했을 경우 DB에 있는지 검사
+                    System.out.println("original_url is not exist" );
+
+                    String shortUrl = Base62Util.getBase62UtilInstance().encodeToLong(random_key);
+                    System.out.println("ENCODE : "+shortUrl+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(shortUrl));
+
+
+                    SearchHistory searchHistory = new SearchHistory(reqMap.get("originalUrl").toString(), random_key, protocolHostname + shortUrl, Timestamp.valueOf(LocalDateTime.now()));
+
+                    searchHistoryService.save(searchHistory);
+                    returnData.setResultData(searchHistory);
+                }
+                else
+                {//short_url이 DB에 있을 경우
+                    System.out.println("short_url is here!!");
+                    String tempShortUrl = findCheckShortUrl.getShort_url();
+                    findCheckShortUrl.setShort_url(findCheckShortUrl.getOriginal_url());
+                    findCheckShortUrl.setOriginal_url(tempShortUrl);
+                    returnData.setResultData(findCheckShortUrl);
+                }
+            }
+            else {
+                System.out.println("original_url is here!!");
+                returnData.setResultData(findCheckOriginalUrl);
+
+                return returnData;
+            }
+
+        } catch(Exception e) {
+            e.printStackTrace();
+            returnData = new ReturnData(new ErrorInfo(e));
         }
-        return result;
-    }
-
-    public static long decodeToLong(String value) {
-        long result=0;
-        long power=1;
-        for (int i = 0; i < value.length(); i++) {
-            int digit = new String(BASE62).indexOf(value.charAt(i));
-            result += digit * power;
-            power *= 62;
-        }
-        return result;
+        return returnData;
     }
 
 

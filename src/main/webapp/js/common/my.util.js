@@ -63,7 +63,15 @@ var MyUtil = {
 			else {
 				return value;
 			}
-		}
+		},
+		/** unit1000 */
+		setHyperlink: function (row, column, value,value2,value3,value4) {
+			var cell = '<div style="text-align: left; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
+			cell += '<a href="'+value4.original_url+'"/>';
+			cell += value;
+			cell += '</div>';
+			return cell;
+		},
 
 };
 
