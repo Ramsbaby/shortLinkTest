@@ -1,7 +1,5 @@
-
 var timer;
 var initrowdetails;
-var quotes = ["I'm gonna make him an offer he can't refuse.", "Toto, I've got a feeling we're not in Kansas anymore.", "You talkin' to me?", "Bond. James Bond.", "I'll be back.", "Round up the usual suspects.", "I'm the king of the world!", "A martini. Shaken, not stirred.", "May the Force be with you.", "Well, nobody's perfect."];
 
 //http:// 포함인지 아닌지 check
 var pattern = /^((http(s?))\:\/\/)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/;
@@ -27,14 +25,15 @@ var Main = {
 
     /** init design */
     initDesign: function() {
-        $('#mainSplitter').jqxSplitter({ width: '60%', height: '50%', orientation: 'vertical', theme: jqxTheme, panels: [{ size: '40%', collapsible: false }, { size: '60%' }] });
+        $('#mainSplitter').jqxSplitter({ width: '100%', height: '100%', orientation: 'vertical', theme: jqxTheme, panels: [{ size: '70%', collapsible: false }, { size: '30%' }] });
+        $('#subSplitter').jqxSplitter({ width: '100%', height: '100%', orientation: 'vertical', theme: jqxTheme, panels: [{ size: '40%', collapsible: false }, { size: '60%' }] });
         $("#jqxPanel").jqxPanel({ width: 350, height: 350});
         $('#inputUrl').jqxInput({width: '100%', height:21});
 
 
         MyGrid.create($("#urlGrid"), {
             source: new $.jqx.dataAdapter(
-                {datatype: 'json',},
+                {datatype: 'json'},
                 {formatData: function(data) {return data;}}
             ),
             width:'100%',
@@ -45,20 +44,39 @@ var Main = {
             editable: false,
             columns:
                 [
-                    { text : 'ID', datafield : 'id', width : 150 , columntype: 'custom', hidden:true},
-                    { text : '검색 일시', datafield : 'regdate', minwidth : 100 , cellsrenderer: MyUtil.convertTimestampToDate, editable:false},
-                    { text : 'Original URL', datafield : 'original_url', width : 250 , editable:true},
-                    { text : 'Shortening URL', datafield : 'short_url', width : 250 , cellsrenderer: MyUtil.setHyperlink,  editable:true}
+                    { text : 'ID', datafield : 'ID', width : 100 , columntype: 'custom', hidden:true},
+                    { text : '검색 일시', datafield : 'REGDATE', minwidth : 100 , cellsrenderer: MyUtil.convertTimestampToDate},
+                    { text : 'Original URL', datafield : 'ORIGINAL_URL', width : 250 },
+                    { text : 'Shortening URL', datafield : 'SHORT_URL', width : 250 , cellsrenderer: MyUtil.setHyperlink},
+                    { text : '카운트', datafield : 'CNT', width : 60 , cellsalign:'center'}
                 ]
         });
 
         $("#notiBtn").jqxButton();
         $("#notiBtn").click(function () {
         });
+
+
+        var settings = MyChart2.getCommOptions(MyChart2.T_PIE, MyChart2.XUNIT_HOUR);
+        $.extend(settings, {
+            seriesGroups: [
+                MyChart2.getSeriesGroup($('#chartContainer'), MyChart2.T_PIE, null,
+                    MyChart2.getSeries(
+                        [ 'CNT' ],
+                        [ 'ORIGINAL_URL' ],
+                        false
+                    )
+                )
+            ]
+        });
+        MyChart2.create($('#chartContainer'), settings);
+        // setup the chart
+        // $('#chartContainer').jqxChart(settings);
     },
 
     /** init data */
     initData: function() {
+        Main.searchGrid();
     },
 
     /*=======================================================================================
@@ -90,11 +108,27 @@ var Main = {
                     data.original_url = data.original_url;
                 }
 
-                list.push({ regdate: data.regdate, original_url: data.original_url, short_url: data.short_url});
-                $("#urlGrid").jqxGrid('addrow', null, list);
+                console.log(data);
+                // list.push({ REGDATE: data.regdate, ORIGINAL_URL: data.original_url, SHORT_URL: data.short_url});
+                Main.searchGrid();
             }
         });
 
+    },
+
+    searchGrid: function() {
+        $.ajax({
+            url: "/shortLink/getSearchHistoryList.do",
+            data: '',
+            beforeSend: function () {},
+            success: function (res) {
+                console.log(res);
+                MyGrid.setLocalData($("#urlGrid"), res.resultData.resultData);
+
+                $('#chartContainer').jqxChart({ source: res.resultData.resultData });
+                $('#chartContainer').jqxChart('update');
+            }
+        });
     }
 };
 

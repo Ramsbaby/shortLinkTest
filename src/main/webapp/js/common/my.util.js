@@ -76,7 +76,7 @@ var MyUtil = {
 		/** unit1000 */
 		setHyperlink: function (row, column, value,value2,value3,value4) {
 			var cell = '<div style="text-align: left; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
-			cell += '<a href="'+value4.original_url+'"/>';
+			cell += '<a href="'+ (value4.ORIGINAL_URL.indexOf('.')==-1? value4.SHORT_URL:value4.ORIGINAL_URL)+'"/>';
 			cell += value;
 			cell += '</div>';
 			return cell;
@@ -153,3 +153,23 @@ $.fn.serializeObject = function() {
     });
     return o;
 };
+
+
+/** jQuery extends */
+$.extend({
+    /** null check */
+    isBlank: function (val) {
+        var tmp = $.trim(val);
+        if (tmp !== undefined && tmp != null && tmp.length > 0)
+            return false;
+        else
+            return true;
+    },
+
+    isEmpty: function (obj) {
+        if (obj !== undefined && obj != null)
+            return false;
+        else
+            return true;
+    }
+});

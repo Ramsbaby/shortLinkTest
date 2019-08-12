@@ -1,1 +1,1 @@
-insert into search_history (id, regdate, random_key, original_url, short_url) values (1, current_timestamp(), 123123123123, 'www.naver.com', 'test');
+-- insert into search_history (id, regdate, random_key, original_url, short_url) values (1, current_timestamp(), 123123123123, 'www.naver.com', 'test');

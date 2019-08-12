@@ -20,9 +20,9 @@ public interface SearchHistoryService {
 
 	public void save(SearchHistory entity);
 
-	public ReturnData getSearchHistoryList(HttpServletRequest req, HttpServletResponse res,
-                                           @PageableDefault(size = 10, page = 0, sort = "regdate", direction = Sort.Direction.DESC) Pageable pageable);
+	public ReturnData getSearchHistoryList(HttpServletRequest req, HttpServletResponse res);
 
 	public ReturnData getKeywordTopList(HttpServletRequest req, HttpServletResponse res);
 
+	public void updateHistoryCnt(SearchHistory searchHistory);
 }

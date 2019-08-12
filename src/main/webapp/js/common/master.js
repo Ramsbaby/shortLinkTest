@@ -11,10 +11,6 @@ var Master = {
 
 	initVariable: function() {
 		ctxPath = $('#ctxPath').val();
-		
-		var icoNm = 'favicon.ico';
-		var icoUrl = ctxPath + '/img/ico/' + icoNm;
-		$('head').append('<link rel="shortcut icon" href="' + icoUrl + '" />');
 	},
 		
 	observe: function() {

@@ -31,4 +31,5 @@
 <script src="${pageContext.request.contextPath}/js/common/my.prototype.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/my.util.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/my.jqx.grid.js"></script>
+<script src="${pageContext.request.contextPath}/js/common/my.jqx.chart.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/master.js"></script>

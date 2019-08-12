@@ -40,17 +40,10 @@ public class SearchHistoryServiceImpl implements SearchHistoryService{
     }
 
     @Override
-    public ReturnData getSearchHistoryList(HttpServletRequest req, HttpServletResponse res,
-                                    @PageableDefault(size = 10, page = 0, sort = "regdate", direction = Sort.Direction.DESC) Pageable pageable)  {
+    public ReturnData getSearchHistoryList(HttpServletRequest req, HttpServletResponse res)  {
         try {
-//            User user = userService.getUser(SessionManager.getUser());
-
-//            searchHistoryService.save(new SearchHistory(searchKeyword, Timestamp.valueOf(LocalDateTime.now()),));
-
-//            Page<SearchHistory> searchHistoryList = searchHistoryRepository.findById();
-//            return new ReturnData(searchHistoryList.getContent());
-            return new ReturnData("test");
-
+            List<Map<String,Object>> searchHistoryList = searchHistoryRepository.selectSearchHistroryList();
+            return new ReturnData(searchHistoryList);
         } catch (Exception e) {
             logger.info(e.getMessage());
             return new ReturnData(new ErrorInfo(e));
@@ -66,5 +59,11 @@ public class SearchHistoryServiceImpl implements SearchHistoryService{
             logger.info(e.getMessage());
             return new ReturnData(new ErrorInfo(e));
         }
+    }
+
+    // SearchHistoryUpdateCnt
+    @Transactional
+    public void updateHistoryCnt(SearchHistory searchHistory) {
+        searchHistoryRepository.updateHistoryCnt( searchHistory );
     }
 }

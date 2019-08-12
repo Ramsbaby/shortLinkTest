@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -58,13 +59,13 @@ public class ShortLinkTestController {
             if(findCheckOriginalUrl == null)
             {//original_url DB에 있는지 검사
                 if(findCheckShortUrl == null)
-                {//short_url로 입력했을 경우 DB에 있는지 검사
+                {//short_url로 입력했을 경우 DB에 있는지 검사, 없을 경우
                     System.out.println("original_url is not exist" );
 
                     String shortUrl = Base62Util.getBase62UtilInstance().encodeToLong(random_key);
                     System.out.println("ENCODE : "+shortUrl+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(shortUrl));
 
-                    SearchHistory searchHistory = new SearchHistory(reqMap.get("originalUrl").toString(), random_key, protocolHostname + shortUrl, Timestamp.valueOf(LocalDateTime.now()));
+                    SearchHistory searchHistory = new SearchHistory(reqMap.get("originalUrl").toString(), random_key, protocolHostname + shortUrl, Timestamp.valueOf(LocalDateTime.now()), 1);
 
                     searchHistoryService.save(searchHistory);
                     returnData.setResultData(searchHistory);
@@ -73,13 +74,18 @@ public class ShortLinkTestController {
                 {//short_url이 DB에 있을 경우
                     System.out.println("short_url is here!!");
                     String tempShortUrl = findCheckShortUrl.getShort_url();
-                    findCheckShortUrl.setShort_url(findCheckShortUrl.getOriginal_url());
-                    findCheckShortUrl.setOriginal_url(tempShortUrl);
-                    returnData.setResultData(findCheckShortUrl);
+//                    findCheckShortUrl.setShort_url(findCheckShortUrl.getOriginal_url());
+//                    findCheckShortUrl.setOriginal_url(tempShortUrl);
+                    SearchHistory searchHistory = new SearchHistory(tempShortUrl, random_key, findCheckShortUrl.getOriginal_url(), Timestamp.valueOf(LocalDateTime.now()), 1);
+                    searchHistoryService.save(searchHistory);
+                    returnData.setResultData(searchHistory);
+
+//                    searchHistoryRepository.updateHistoryCnt(findCheckShortUrl);
                 }
             }
             else {
                 System.out.println("original_url is here!!");
+                searchHistoryRepository.updateHistoryCnt(findCheckOriginalUrl);
                 returnData.setResultData(findCheckOriginalUrl);
 
                 return returnData;
@@ -91,6 +97,22 @@ public class ShortLinkTestController {
         }
         return returnData;
     }
+
+
+    @RequestMapping(value = "getSearchHistoryList.do")
+    @ResponseBody
+    public ReturnData getSearchHistoryList(HttpServletRequest req, HttpServletResponse res)  {
+        try {
+            ReturnData returnData= new ReturnData();
+            returnData.setResultData(searchHistoryService.getSearchHistoryList(req,res));
+            return new ReturnData(returnData.getResultData());
+
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+            return new ReturnData(new ErrorInfo(e));
+        }
+    }
+
 
 
 }
