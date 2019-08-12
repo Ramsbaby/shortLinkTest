@@ -65,6 +65,15 @@ var MyUtil = {
 			}
 		},
 		/** unit1000 */
+        convertTimestampToDate: function (row, column, value) {
+        	var date = new Date(value);
+
+			var cell = '<div style="text-align: center; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
+			cell +=  date.getFullYear() + '-' + (date.getMonth()+1.0) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+			cell += '</div>';
+			return cell;
+		},
+		/** unit1000 */
 		setHyperlink: function (row, column, value,value2,value3,value4) {
 			var cell = '<div style="text-align: left; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
 			cell += '<a href="'+value4.original_url+'"/>';

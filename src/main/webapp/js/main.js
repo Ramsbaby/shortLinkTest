@@ -46,7 +46,7 @@ var Main = {
             columns:
                 [
                     { text : 'ID', datafield : 'id', width : 150 , columntype: 'custom', hidden:true},
-                    { text : '검색 일시', datafield : 'regdate', minwidth : 100 , editable:false},
+                    { text : '검색 일시', datafield : 'regdate', minwidth : 100 , cellsrenderer: MyUtil.convertTimestampToDate, editable:false},
                     { text : 'Original URL', datafield : 'original_url', width : 250 , editable:true},
                     { text : 'Shortening URL', datafield : 'short_url', width : 250 , cellsrenderer: MyUtil.setHyperlink,  editable:true}
                 ]

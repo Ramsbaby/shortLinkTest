@@ -41,16 +41,16 @@ public class ShortLinkTestApplication{
 //    @Test
     public void testEncodeAndDecode() throws Exception{
 //	    String bin = Integer.toBinaryString()
-        String url = Base62Util.getBase62UtilInstance().stringToHex("www.naver.com");
-        byte[] bytes = Hex.decodeHex(url.toCharArray());
-        System.out.println(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
-
-//        int intValue = Integer.parseInt(byteArrayToInt(bytes), 16);
-        System.out.println(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
-        String encodedReservationNo = Base62Util.getBase62UtilInstance().encode(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
-        System.out.println("ENCODE : "+encodedReservationNo+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(encodedReservationNo));
-
-        System.out.println("DECODE URL : " + new String(bytes, StandardCharsets.US_ASCII));
+//        String url = Base62Util.getBase62UtilInstance().stringToHex("www.naver.com");
+//        byte[] bytes = Hex.decodeHex(url.toCharArray());
+//        System.out.println(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
+//
+////        int intValue = Integer.parseInt(byteArrayToInt(bytes), 16);
+//        System.out.println(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
+//        String encodedReservationNo = Base62Util.getBase62UtilInstance().encode(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
+//        System.out.println("ENCODE : "+encodedReservationNo+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(encodedReservationNo));
+//
+//        System.out.println("DECODE URL : " + new String(bytes, StandardCharsets.US_ASCII));
 
 //        assertEquals(1234512345, Base62Util.decodeToLong(encodedReservationNo));
 //        Base62Util.decodeToLong(encodedReservationNo);

@@ -64,7 +64,6 @@ public class ShortLinkTestController {
                     String shortUrl = Base62Util.getBase62UtilInstance().encodeToLong(random_key);
                     System.out.println("ENCODE : "+shortUrl+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(shortUrl));
 
-
                     SearchHistory searchHistory = new SearchHistory(reqMap.get("originalUrl").toString(), random_key, protocolHostname + shortUrl, Timestamp.valueOf(LocalDateTime.now()));
 
                     searchHistoryService.save(searchHistory);
