@@ -2,6 +2,7 @@ package com.jwlee.shortLinkTest;
 
 import com.jwlee.shortLinkTest.common.util.Base62Util;
 import org.apache.commons.codec.binary.Hex;
+import org.junit.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -13,6 +14,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
+
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * DemoApplication
@@ -32,42 +35,10 @@ public class ShortLinkTestApplication{
 	public ShortLinkTestApplication() throws Exception{//RestTemplate restTemplate, LoadBalancerClient loadBalancer) {
 //		this.restTemplate = restTemplate;
 //		this.loadBalancer = loadBalancer;
-//        testEncodeAndDecode();
-//        testRandomEncodeAndDecode();
     }
 
 
 
-//    @Test
-    public void testEncodeAndDecode() throws Exception{
-//	    String bin = Integer.toBinaryString()
-//        String url = Base62Util.getBase62UtilInstance().stringToHex("www.naver.com");
-//        byte[] bytes = Hex.decodeHex(url.toCharArray());
-//        System.out.println(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
-//
-////        int intValue = Integer.parseInt(byteArrayToInt(bytes), 16);
-//        System.out.println(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
-//        String encodedReservationNo = Base62Util.getBase62UtilInstance().encode(Base62Util.getBase62UtilInstance().byteArrayToInt(bytes));
-//        System.out.println("ENCODE : "+encodedReservationNo+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(encodedReservationNo));
-//
-//        System.out.println("DECODE URL : " + new String(bytes, StandardCharsets.US_ASCII));
-
-//        assertEquals(1234512345, Base62Util.decodeToLong(encodedReservationNo));
-//        Base62Util.decodeToLong(encodedReservationNo);
-    }
-
-//    @Test
-    public void testRandomEncodeAndDecode() throws Exception{
-        for(int i=0; i < 10; i++) {
-            Random rnd = new Random();
-            long value = Math.abs(rnd.nextLong() % 10000000000L);
-            System.out.println("VALUE : " + value);
-            String encodedReservationNo = Base62Util.encodeToLong(value);
-            System.out.println("ORIGINAL : " + value + ", ENCODE : " + encodedReservationNo + ", DECODE : " + Base62Util.decodeToLong(encodedReservationNo));
-//            assertEquals(value, Base62Util.decodeToLong(encodedReservationNo));
-//            Base62Util.decodeToLong(encodedReservationNo);
-        }
-    }
 
 
 
