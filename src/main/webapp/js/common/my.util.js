@@ -75,8 +75,13 @@ var MyUtil = {
 		},
 		/** unit1000 */
 		setHyperlink: function (row, column, value,value2,value3,value4) {
-			var cell = '<div style="text-align: left; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
-			cell += '<a href="'+ (value4.ORIGINAL_URL.indexOf('.')==-1? value4.SHORT_URL:value4.ORIGINAL_URL)+'"/>';
+			var cell = '<div style="text-align: left; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >'
+			var realUrl = value4.SHORT_URL;
+
+			if(value4.ORIGINAL_URL.indexOf('localhost') == -1 && value4.ORIGINAL_URL.indexOf('127.0.0.1') == -1)
+                realUrl = value4.ORIGINAL_URL;
+
+			cell += '<a href="'+ (realUrl)+'"/>';
 			cell += value;
 			cell += '</div>';
 			return cell;
