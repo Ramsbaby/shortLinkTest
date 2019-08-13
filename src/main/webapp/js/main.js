@@ -86,7 +86,7 @@ var Main = {
 
     search: function() {
         var flag;
-        var re = new RegExp("^http://","i");
+        var re = new RegExp("^http","i");
         re.test($('#inputUrl').val())?flag=true:flag=false;
 
         if(!flag)
