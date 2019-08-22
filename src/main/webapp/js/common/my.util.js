@@ -91,6 +91,7 @@ var MyUtil = {
 
         /** 크로스 브라우징 방지 */
         setTimestampToDate: function (date){
+        	if(typeof date != 'string') return;
             date = date.split(".")[0];
             var ieDate = date.split("T")[0] +' '+ date.split("T")[1];
 
