@@ -1,6 +1,5 @@
 package com.jwlee.shortLinkTest;
 
-import com.jwlee.shortLinkTest.ShortLinkTestApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

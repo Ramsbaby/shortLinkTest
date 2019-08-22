@@ -1,12 +1,5 @@
 /**=======================
 	서브페이지
-	
-	1. 작성자: 강연아
-	2. 생성일자: 2016-03-30
-	3. 수정일자: 2016-08-26
-	   - 중메뉴 가운데정렬로변경
-	   - 소메뉴 오버 효과 변경 
-	   
 ======================== */
 
 
@@ -169,7 +162,6 @@ ul, li {
 	height: 30px;
 	float: left;
 	position: relative;
-	background: url('../img/topSearchPtn.gif') repeat-x;
 	background-size: 100% 100%;
 }
 
@@ -378,7 +370,7 @@ ul, li {
 	margin: -5px 10px 0 0;
 	color: #666;
 	font-weight: bold;
-	background: #e4e4e4 url('../img/searchIcon.gif') no-repeat 15px 8px;
+	background: #e4e4e4 no-repeat 15px 8px;
 }
 
 #cbPeriod {
@@ -743,11 +735,3 @@ input:-moz-placeholder {
 	background: #e9f6ff url(../lib/megamenu/skins/images/rec01_on.png)
 		no-repeat 7px 10px;
 }
-
-/* 서브타이틀 뷰렛 */
-.pageSubTitle{width: 9px; height:9px; background: url(../img/MainImg/customer_bullet.png) no-repeat 0px 0px; }
-
-
-/* logout */
-.userLogout{background:url('../img/MainImg/main_logut.png') no-repeat; width:68px; height:20px; float:right; cursor:pointer; margin:18px;}
-.userId{color:#fff; font-weight: bold; background:url("../img/MainImg/userIcon2.png") 0 2px no-repeat; float:right; margin: 20px 10px; padding-left: 20px;}

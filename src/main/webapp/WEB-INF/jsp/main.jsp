@@ -6,11 +6,6 @@
 <title>SHORT_LINK_TEST_v0.0.1</title>
 <%@include file="/inc/inc.jsp" %>
 <script src="${pageContext.request.contextPath}/js/main.js"></script>
-<style>
-    #prgrsBar > div > span {
-        left: 0px !important;
-    }
-</style>
 <body>
 <div id="header">
     <%@include file="/inc/header.jsp" %>

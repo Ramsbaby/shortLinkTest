@@ -1,3 +1,4 @@
+var jqxTheme = 'ui-book';
 var MyUtil = {
 		/** window.open() 팝업 */
 		showPopup: function(url, frm, popNm, popW, popH) {

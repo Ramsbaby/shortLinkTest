@@ -1,8 +1,6 @@
 package com.jwlee.shortLinkTest.webapp.db.search.repository;
 
 import com.jwlee.shortLinkTest.webapp.db.search.model.SearchHistory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

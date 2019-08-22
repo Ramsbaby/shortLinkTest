@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jqx.my.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/button.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jqx.ui-book-gray.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/book.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/my.css" />
 
 <!-- js library -->
 <script src="${pageContext.request.contextPath}/lib/jquery/jquery-1.12.4.min.js"></script>
@@ -32,4 +32,3 @@
 <script src="${pageContext.request.contextPath}/js/common/my.util.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/my.jqx.grid.js"></script>
 <script src="${pageContext.request.contextPath}/js/common/my.jqx.chart.js"></script>
-<script src="${pageContext.request.contextPath}/js/common/master.js"></script>

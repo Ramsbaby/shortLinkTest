@@ -2,24 +2,17 @@ package com.jwlee.shortLinkTest.webapp.db.search.service;
 
 import com.jwlee.shortLinkTest.webapp.common.ErrorInfo;
 import com.jwlee.shortLinkTest.webapp.common.ReturnData;
-import com.jwlee.shortLinkTest.webapp.common.SessionManager;
 import com.jwlee.shortLinkTest.webapp.controller.ShortLinkTestController;
 import com.jwlee.shortLinkTest.webapp.db.search.model.SearchHistory;
 import com.jwlee.shortLinkTest.webapp.db.search.repository.SearchHistoryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 

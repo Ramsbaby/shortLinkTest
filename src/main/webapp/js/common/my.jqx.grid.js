@@ -75,48 +75,6 @@ var MyGrid = {
 		setLocalData: function($grid, data) {
 			$grid.jqxGrid('source')._source.localdata = data;
 			$grid.jqxGrid('updateBoundData');
-		},
-
-		/** 선택된 rowindex를 리턴 */
-		getRowIdx: function($grid, msg) {
-			var rowIdx = $grid.jqxGrid('getselectedrowindex');
-			if(rowIdx === undefined || rowIdx === null || rowIdx == -1) {
-				if(msg !== undefined) alert(msg);
-				return false;
-			}
-			return rowIdx;
-		},
-
-		/** 선택된 row의 data를 리턴 */
-		getRowData: function($grid, rowIdx) {
-			if(rowIdx === undefined) {
-				rowIdx = $grid.jqxGrid('getselectedrowindex');
-				if(rowIdx == -1) return null;
-			}
-
-			return $grid.jqxGrid('getrowdata', rowIdx);
-		},
-
-		/** 선택된 row의 editing을 종료 */
-		endRowEdit: function($grid) {
-			var rowIdx = MyGrid.getRowIdx($grid);
-			if(rowIdx !== false) {
-				$grid.jqxGrid('endrowedit', rowIdx, false);
-			}
-		},
-
-		/** 선택된 cell의 editing을 종료 (selectionmode = singlecell일때) */
-		endCellEdit: function($grid) {
-			var rowIdx = MyGrid.getRowIdx($grid);
-			if (rowIdx === false) return;
-
-            var chlidrens = $grid.children();
-            if(chlidrens && chlidrens.length) {
-                var elValidation = chlidrens.find('div.jqx-grid-validation');
-                if (elValidation.length && $(elValidation[0]).css('display') == 'block') {
-                    return false;
-                }
-            }
-			$grid.jqxGrid('endrowedit', rowIdx, false);
 		}
+
 };

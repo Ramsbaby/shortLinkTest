@@ -57,11 +57,11 @@ var Main = {
         });
 
 
-        var settings = MyChart2.getCommOptions(MyChart2.T_PIE, MyChart2.XUNIT_HOUR);
+        var settings = MyChart.getCommOptions(MyChart.T_PIE, MyChart.XUNIT_HOUR);
         $.extend(settings, {
             seriesGroups: [
-                MyChart2.getSeriesGroup($('#chartContainer'), MyChart2.T_PIE, null,
-                    MyChart2.getSeries(
+                MyChart.getSeriesGroup($('#chartContainer'), MyChart.T_PIE, null,
+                    MyChart.getSeries(
                         [ 'CNT' ],
                         [ 'ORIGINAL_URL' ],
                         false
@@ -69,9 +69,7 @@ var Main = {
                 )
             ]
         });
-        MyChart2.create($('#chartContainer'), settings);
-        // setup the chart
-        // $('#chartContainer').jqxChart(settings);
+        MyChart.create($('#chartContainer'), settings);
     },
 
     /** init data */

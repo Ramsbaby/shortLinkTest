@@ -74,13 +74,10 @@ public class ShortLinkTestController {
                 {//short_url이 DB에 있을 경우
                     System.out.println("short_url is here!!");
                     String tempShortUrl = findCheckShortUrl.getShort_url();
-//                    findCheckShortUrl.setShort_url(findCheckShortUrl.getOriginal_url());
-//                    findCheckShortUrl.setOriginal_url(tempShortUrl);
+
                     SearchHistory searchHistory = new SearchHistory(tempShortUrl, random_key, findCheckShortUrl.getOriginal_url(), Timestamp.valueOf(LocalDateTime.now()), 1);
                     searchHistoryService.save(searchHistory);
                     returnData.setResultData(searchHistory);
-
-//                    searchHistoryRepository.updateHistoryCnt(findCheckShortUrl);
                 }
             }
             else {
