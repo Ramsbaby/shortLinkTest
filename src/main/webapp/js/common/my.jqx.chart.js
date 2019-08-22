@@ -178,7 +178,7 @@ var MyChart2 = {
 		var dataItem = $chart.jqxChart('source')[itemIndex];
 
 		var s = '<div style="text-align: left;"><b>' + $.format.date(new Date(MyUtil.setTimestampToDate(dataItem.REGDATE)), 'yyyy-MM-dd HH:mm:ss') + '</b><br>';
-		$.each(group.series, functio
+		$.each(group.series, function(idx, value) {
             s += dataItem.ORIGINAL_URL + ' : ' + dataItem[value.dataField] + '<br>';
 		});
 		s += '</div>';
