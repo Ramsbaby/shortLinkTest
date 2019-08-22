@@ -176,7 +176,11 @@ var MyChart2 = {
 	
 	toolTipFormatFn: function($chart, value, itemIndex, series, group, categoryValue, categoryAxis) {
 		var dataItem = $chart.jqxChart('source')[itemIndex];
-		console.log(dataItem);
+
+		//IE 크로스 브라우징 문제
+        dataItem.REGDATE = MyUtil.setTimestampToDate(dataItem.REGDATE);
+
+        console.log(dataItem);
 		console.log(group);
 		var s = '<div style="text-align: left;"><b>' + $.format.date(new Date(dataItem.REGDATE), 'yyyy-MM-dd HH:mm:ss') + '</b><br>';
 		$.each(group.series, function(idx, value) {

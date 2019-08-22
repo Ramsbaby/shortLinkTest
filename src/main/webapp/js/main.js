@@ -108,7 +108,6 @@ var Main = {
                     data.original_url = data.original_url;
                 }
 
-                console.log(data);
                 // list.push({ REGDATE: data.regdate, ORIGINAL_URL: data.original_url, SHORT_URL: data.short_url});
                 Main.searchGrid();
             }
@@ -122,9 +121,10 @@ var Main = {
             data: '',
             beforeSend: function () {},
             success: function (res) {
-                console.log(res);
+                //그리드 데이터 바인딩
                 MyGrid.setLocalData($("#urlGrid"), res.resultData.resultData);
 
+                //파이차트 데이터 바인딩
                 $('#chartContainer').jqxChart({ source: res.resultData.resultData });
                 $('#chartContainer').jqxChart('update');
             }

@@ -65,13 +65,12 @@ var MyUtil = {
 			}
 		},
 		/** unit1000 */
-        convertTimestampToDate: function (row, column, value) {
-        	console.log(value);
-        	var date = new Date(value);
-            console.log(date);
+        convertTimestampToDate: function (row, column, value,value2,value3,value4) {
+
+            value = MyUtil.setTimestampToDate(value);
 
 			var cell = '<div style="text-align: center; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
-			cell +=  date.getFullYear() + '-' + (date.getMonth()+1.0) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+			cell +=  value.getFullYear() + '-' + (value.getMonth()+1.0) + '-' + value.getDate() + ' ' + value.getHours() + ':' + value.getMinutes() + ':' + value.getSeconds();
 			cell += '</div>';
 			return cell;
 		},
@@ -88,6 +87,23 @@ var MyUtil = {
 			cell += '</div>';
 			return cell;
 		},
+
+
+        /** 크로스 브라우징 방지 */
+        setTimestampToDate: function (date){
+            date = date.split(".")[0];
+            var ieDate = date.split("T")[0] +' '+ date.split("T")[1];
+
+            //크로스 브라우징 (IE에서 new date 했을 경우 invalid date 뜨는 에러 막기 위해서)
+            var arr, dsDate;
+            arr  = ieDate.split('-');
+            dsDate = new Date(arr[0] + "/" + arr[1] + "/" + arr[2] +'Z');
+            date = dsDate;
+
+            date = new Date(Date.parse(date));
+
+            return date;
+        }
 
 };
 
