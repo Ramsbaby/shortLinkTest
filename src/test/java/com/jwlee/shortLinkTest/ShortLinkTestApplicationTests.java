@@ -11,7 +11,10 @@ import java.util.Random;
 import static junit.framework.TestCase.assertEquals;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(
+        classes = {ShortLinkTestApplication.class},
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+)
 public class ShortLinkTestApplicationTests {
 
     @Test

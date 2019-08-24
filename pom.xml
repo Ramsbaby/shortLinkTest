@@ -19,22 +19,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 		<java.version>1.8</java.version>
         <logback.version>1.2.3</logback.version>
     </properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -75,7 +63,6 @@
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
 			<version>1.2.1</version>
 		</dependency>
-
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
@@ -102,7 +89,6 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.codehaus.janino</groupId>
 			<artifactId>janino</artifactId>
@@ -116,7 +102,8 @@
 			<scope>provided</scope>
 		</dependency>
 
-        <dependency>
+		<!--for junit -->
+		<dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
