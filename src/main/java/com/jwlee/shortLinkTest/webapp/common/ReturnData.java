@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
 * ReturnData
 * @author jungwoolee
-* @since 2019-07-22
+* @since 2019-08-10
 **/
 @SuppressWarnings("serial")
 public class ReturnData implements Serializable {

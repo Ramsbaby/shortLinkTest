@@ -13,10 +13,10 @@ import java.util.Map;
 /**
 * SearchHistoryRepository
 * @author jungwoolee
-* @since 2019-07-24
+* @since 2019-08-11
 **/
 public interface SearchHistoryRepository extends JpaRepository<SearchHistory, Long> {
-//
+
 	@Query("SELECT s FROM SearchHistory s WHERE s.original_url=?1")
     SearchHistory findByOriginalUrl(String original_url);
 
@@ -33,7 +33,7 @@ public interface SearchHistoryRepository extends JpaRepository<SearchHistory, Lo
             "(SELECT COUNT(SEARCH_WORD) AS CNT, SEARCH_WORD\n" +
             "FROM SEARCH_HISTORY\n" +
             "GROUP BY SEARCH_WORD\n" +
-            "ORDER BY CNT DESC , SEARCH_WORD ASC LIMIT 10) AS A",
+            "ORDER BY CNT DESC , SEARCH_WORD ASC) AS A",
             nativeQuery=true)
     List<Map <String, Object>> selectKeywordTopList();
 

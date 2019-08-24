@@ -21,7 +21,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 		<java.version>1.8</java.version>
-	</properties>
+        <logback.version>1.2.3</logback.version>
+    </properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -68,7 +69,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- JSTL tag lib -->
+		<!-- JSTL tag lib -> Java Standard Tag Library-->
 		<dependency>
 			<groupId>javax.servlet.jsp.jstl</groupId>
 			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
@@ -97,6 +98,12 @@
 
 		<!--for logback if-else -->
 		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.codehaus.janino</groupId>
 			<artifactId>janino</artifactId>
 		</dependency>
@@ -107,13 +114,6 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.8</version>
 			<scope>provided</scope>
-		</dependency>
-
-		<!-- apache httpclient for RestAPI connect -->
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.4</version>
 		</dependency>
 
         <dependency>
@@ -132,7 +132,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<fork>true</fork>
-					<mainClass>${start-class}</mainClass>
+					<mainClass>com.jwlee.shortLinkTest.ShortLinkTestApplication</mainClass>
 				</configuration>
 				<executions>
 					<execution>
@@ -149,7 +149,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.company.mavenproject1.MainClass</mainClass>
+							<mainClass>com.jwlee.shortLinkTest.ShortLinkTestApplication</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

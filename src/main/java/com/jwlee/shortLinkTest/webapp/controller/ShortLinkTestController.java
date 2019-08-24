@@ -25,7 +25,7 @@ import java.util.Random;
 /**
 * SearchHistoryController
 * @author jungwoolee
-* @since 2019-07-24
+* @since 2019-08-11
 **/
 @RequestMapping("/shortLink")
 @Controller
@@ -57,11 +57,13 @@ public class ShortLinkTestController {
             SearchHistory findCheckShortUrl = searchHistoryRepository.findByShortUrl(url);
 
             if(findCheckOriginalUrl == null)
-            {//original_url DB에 있는지 검사
+            {//original_url DB에 없을 때
                 if(findCheckShortUrl == null)
                 {//short_url로 입력했을 경우 DB에 있는지 검사, 없을 경우
+                    //shortUrl도 DB에 없을때 -> DB에 삽입
                     System.out.println("original_url is not exist" );
 
+                    //랜덤키 -> 62진수 변환
                     String shortUrl = Base62Util.getBase62UtilInstance().encodeToLong(random_key);
                     System.out.println("ENCODE : "+shortUrl+", DECODE : " + Base62Util.getBase62UtilInstance().decodeToLong(shortUrl));
 
@@ -71,16 +73,20 @@ public class ShortLinkTestController {
                     returnData.setResultData(searchHistory);
                 }
                 else
-                {//short_url이 DB에 있을 경우
+                {//short_url이 DB에 있을 경우 > 원래 url로 리다이렉트 해주기 위해
                     System.out.println("short_url is here!!");
                     String tempShortUrl = findCheckShortUrl.getShort_url();
 
                     SearchHistory searchHistory = new SearchHistory(tempShortUrl, random_key, findCheckShortUrl.getOriginal_url(), Timestamp.valueOf(LocalDateTime.now()), 1);
+                    //숏터닝 url을 입력하였을 경우, 원래 original_url을 보여주기 위해 거꾸로 저장.
+                    //숏터닝 url을 original_url에 저장
+                    //original_url을 short_url에 저장
+
                     searchHistoryService.save(searchHistory);
                     returnData.setResultData(searchHistory);
                 }
             }
-            else {
+            else {//original_url DB에 있을 때, 따로 저장로직필요없이 해당 데이터의 카운트를 1 증가 시켜 준다.
                 System.out.println("original_url is here!!");
                 searchHistoryRepository.updateHistoryCnt(findCheckOriginalUrl);
                 returnData.setResultData(findCheckOriginalUrl);
@@ -102,8 +108,7 @@ public class ShortLinkTestController {
         try {
             ReturnData returnData= new ReturnData();
             returnData.setResultData(searchHistoryService.getSearchHistoryList(req,res));
-            return new ReturnData(returnData.getResultData());
-
+            return returnData;
         } catch (Exception e) {
             logger.info(e.getMessage());
             return new ReturnData(new ErrorInfo(e));

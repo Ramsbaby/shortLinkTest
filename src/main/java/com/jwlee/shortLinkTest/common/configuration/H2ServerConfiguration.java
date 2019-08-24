@@ -11,7 +11,7 @@ import java.sql.SQLException;
 /**
 * H2ServerConfiguration , DB JVM에 SET
 * @author jungwoolee
-* @since 2019-07-22
+* @since 2019-08-10
 **/
 @Configuration
 public class H2ServerConfiguration {

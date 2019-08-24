@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
 * SearchHistoryService
 * @author jungwoolee
-* @since 2019-07-24
+* @since 2019-08-11
 **/
 @Service
 public interface SearchHistoryService {

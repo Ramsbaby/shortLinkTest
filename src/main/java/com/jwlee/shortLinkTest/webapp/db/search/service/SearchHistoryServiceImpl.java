@@ -20,7 +20,6 @@ import java.util.Map;
 public class SearchHistoryServiceImpl implements SearchHistoryService{
     private final Logger logger = LoggerFactory.getLogger(ShortLinkTestController.class);
 
-
     @Autowired
     SearchHistoryService searchHistoryService;
 

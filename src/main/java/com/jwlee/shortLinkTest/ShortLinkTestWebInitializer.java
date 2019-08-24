@@ -6,7 +6,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 /**
  * ShortLinkTestWebInitializer
  * @author jungwoolee
- * @since 2019-07-22
+ * @since 2019-08-10
+ * war파일로 배포위해 web.xml 역할을 대체하는 SpringBootServletInitializer 상속받는 클래스 선언 -> WebApplicationInitializer 구현체
  **/
 public class ShortLinkTestWebInitializer extends SpringBootServletInitializer {
     @Override

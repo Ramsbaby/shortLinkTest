@@ -25,12 +25,16 @@ var Main = {
 
     /** init design */
     initDesign: function() {
+        //전체 스플리터 디자인
         $('#mainSplitter').jqxSplitter({ width: '100%', height: '100%', orientation: 'vertical', theme: jqxTheme, panels: [{ size: '70%', collapsible: false }, { size: '30%' }] });
         $('#subSplitter').jqxSplitter({ width: '100%', height: '100%', orientation: 'vertical', theme: jqxTheme, panels: [{ size: '40%', collapsible: false }, { size: '60%' }] });
+
+        //좌측 영역 디자인(인풋영역)
         $("#jqxPanel").jqxPanel({ width: 350, height: 350});
         $('#inputUrl').jqxInput({width: '100%', height:21});
+        $("#notiBtn").jqxButton();
 
-
+        //가운데 영역 디자인(아웃풋 그리드 영역)
         MyGrid.create($("#urlGrid"), {
             source: new $.jqx.dataAdapter(
                 {datatype: 'json'},
@@ -52,11 +56,8 @@ var Main = {
                 ]
         });
 
-        $("#notiBtn").jqxButton();
-        $("#notiBtn").click(function () {
-        });
 
-
+        //우측 영역 디자인(아웃풋 차트 영역)
         var settings = MyChart.getCommOptions(MyChart.T_PIE, MyChart.XUNIT_HOUR);
         $.extend(settings, {
             seriesGroups: [
@@ -80,8 +81,7 @@ var Main = {
     /*=======================================================================================
     버튼 이벤트 처리
     ========================================================================================*/
-
-
+    //엔터 및 '링크 축약하기' 버튼 눌렀을 때 이벤트
     search: function() {
         var flag;
         var re = new RegExp("^http","i");
@@ -95,38 +95,28 @@ var Main = {
         Server.get('/shortLink/getUrlToShortLink.do', {
             data: {originalUrl : $('#inputUrl').val(), protocolHostname : location.protocol + '//' + location.hostname + '/'},
             success: function(data) {
-                var list = [];
-
-                if(data.original_url.indexOf('.') == -1)
-                {//62진수에 포함되지 않는 .이 없을 경우 shortening url로 간주 -> shortening url에 original url이 할당되어 있음..
-                    data.original_url = data.short_url;
-                }
-                else
-                {//.이 포함될 경우 62진수에 포함되지 않는 url이므로 original url로 간주 -> original url에 original url이 할당되어 있음..
-                    data.original_url = data.original_url;
-                }
-
-                // list.push({ REGDATE: data.regdate, ORIGINAL_URL: data.original_url, SHORT_URL: data.short_url});
+                //저장된 데이터 바탕으로 다시 grid 및 차트 조회
                 Main.searchGrid();
             }
         });
 
     },
 
+    //최초 로딩 시 DB에서 데이터 가져와 그리드, 차트에 데이터 넣는 이벤트
     searchGrid: function() {
-        $.ajax({
-            url: "/shortLink/getSearchHistoryList.do",
-            data: '',
-            beforeSend: function () {},
-            success: function (res) {
+
+        Server.get('/shortLink/getSearchHistoryList.do', {
+            data: null,
+            success: function(result) {
                 //그리드 데이터 바인딩
-                MyGrid.setLocalData($("#urlGrid"), res.resultData.resultData);
+                MyGrid.setLocalData($("#urlGrid"), result.resultData);
 
                 //파이차트 데이터 바인딩
-                $('#chartContainer').jqxChart({ source: res.resultData.resultData });
+                $('#chartContainer').jqxChart({ source: result.resultData });
                 $('#chartContainer').jqxChart('update');
             }
         });
+
     }
 };
 

@@ -13,7 +13,7 @@ import java.util.Locale;
 /**
 * ErrorInfo
 * @author jungwoolee
-* @since 2019-07-22
+* @since 2019-08-10
 **/
 @SuppressWarnings("serial")
 public class ErrorInfo implements Serializable {
@@ -29,13 +29,8 @@ public class ErrorInfo implements Serializable {
 		if (e instanceof CustomException) {
 			this.message = e.getMessage();
 		} else {
-			
-			ServletRequestAttributes reqAttr = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
-			ServletContext sc = reqAttr.getRequest().getServletContext();
-			WebApplicationContext wac = WebApplicationContextUtils.getWebApplicationContext(sc);
-			MessageSource messageSource = (MessageSource) wac.getBean("messageSource");
-			this.code = messageSource.getMessage("처리 중 에러가 발생했습니다.", null, Locale.getDefault());
-			this.message = messageSource.getMessage("처리 중 에러가 발생했습니다.", null, Locale.getDefault());
+			this.code = "처리 중 에러가 발생했습니다.";
+			this.message = "처리 중 에러가 발생했습니다.";
 		}
 	}
 

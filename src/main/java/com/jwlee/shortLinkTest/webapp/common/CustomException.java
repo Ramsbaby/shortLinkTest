@@ -3,7 +3,7 @@ package com.jwlee.shortLinkTest.webapp.common;
 /**
 * CustomException - 사용자 정의 Exception
 * @author jungwoolee
-* @since 2019-07-22
+* @since 2019-08-10
 **/
 @SuppressWarnings("serial")
 public class CustomException extends RuntimeException {
