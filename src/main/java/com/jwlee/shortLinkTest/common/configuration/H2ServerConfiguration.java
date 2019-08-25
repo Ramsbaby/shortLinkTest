@@ -19,7 +19,7 @@ public class H2ServerConfiguration {
     @Bean
     @ConfigurationProperties("spring.datasource") // application properties의 설정값을 Set한다.
     public DataSource dataSource() throws SQLException {
-        Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9092").start();
+        Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", "9093").start();
         return new org.apache.tomcat.jdbc.pool.DataSource();
     }
 

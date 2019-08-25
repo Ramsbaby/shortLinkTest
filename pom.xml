@@ -7,7 +7,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.6.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jwlee</groupId>
 	<artifactId>ShortLinkTest</artifactId>
@@ -83,7 +82,7 @@
 			<version>8.5.23</version>
 		</dependency>
 
-		<!--for logback if-else -->
+		<!--for logback and janino for if-else -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>

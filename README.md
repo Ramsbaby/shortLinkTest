@@ -1,5 +1,5 @@
 # ShortLinkTest
-숏터닝 링크 서비스
+**숏터닝 링크 서비스**
 
 - 주사용 기술 : Java, Java Script, HTML5, CSS, spring frame work, spring-boot, Hibernate, jQuery, in-memory db(H2), 
 lombok, Base62, jqxWidget.js
@@ -21,6 +21,7 @@ IDE에서 ShortLinkTestApplication.java를 메인 클래스로 하여
 intelliJ : Run > Run 'shortLinkTestApplication'
 혹은 메이븐 package로 빌드 가능.
 
+
 - 실행방법 :
 IDE에서 임베디드톰캣실행 혹은 
 war파일을 이용하여 커맨드 창에서 
@@ -28,5 +29,6 @@ java -jar ShortLinkTest-0.0.1-SNAPSHOT.war
 명령어로 실행할 수 있습니다.
 외부 톰캣에 war파일을 올리셔도 무방합니다.
 
+````
 - 실운용서버 : http://54.180.100.204:8080/
 현재 이 프로젝트는 AWS서버에서 서비스중입니다.
