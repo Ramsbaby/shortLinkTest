@@ -66,7 +66,9 @@ var MyUtil = {
 		},
 		/** unit1000 */
         convertTimestampToDate: function (row, column, value) {
+        	console.log(value);
         	var date = new Date(value);
+            console.log(date);
 
 			var cell = '<div style="text-align: center; overflow: hidden; padding-bottom: 2px; margin-top: 4px; margin-right: 5px; margin-left: 4px; -ms-text-overflow: ellipsis;" >';
 			cell +=  date.getFullYear() + '-' + (date.getMonth()+1.0) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
