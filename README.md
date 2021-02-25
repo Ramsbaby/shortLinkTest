@@ -1,6 +1,12 @@
 # ShortLinkTest
 **숏터닝 링크 서비스**
 
+<div align="center">
+
+  <img src="./src/main/webapp/img/shortLinkTest.png" width="100%" />
+
+</div>
+
 - 주사용 기술 : Java, Java Script, HTML5, CSS, spring frame work, spring-boot, Hibernate, jQuery, in-memory db(H2), 
 lombok, Base62, jqxWidget.js
 
